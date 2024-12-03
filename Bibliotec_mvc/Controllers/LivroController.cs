@@ -63,11 +63,61 @@ namespace Bibliotec_mvc.Controllers
             novoLivro.Escritor = form["Escritor"].ToString();
             novoLivro.Idioma = form["Idioma"].ToString();
 
-            //img
+            //Trabalhar com imagens
+
+            if(form.Files.Count > 0){
+                //primieiro passo
+                //Armazenamento o arquivo enviado pelo usuario
+                var arquivo = form.Files[0];
+
+                //segundo passo
+                var pasta = Path.Combine(Directory.GetCurrentDirectory(), "Wwwroot/images/Livros");
+
+                if(!Directory.Exists(pasta)){
+                    Directory.CreateDirectory(pasta);
+                }
+                    var caminho = Path.Combine(pasta, arquivo.FileName);
+
+                    using (var stream = new FileStream(caminho, FileMode.Create)){
+                        arquivo.CopyTo(stream);
+                    }
+
+                    novoLivro.Imagem = arquivo.FileName;
+            }else{ 
+                novoLivro.Imagem = "Padrao.png";
+            }
 
             context.Livro.Add(novoLivro);
 
             context.SaveChanges();
+
+             
+            //SEGUNDA PARTE: E adicionar dentro de LivroCategoria que pertence ao novoLivro
+            //Lista as categorias
+
+            List<LivroCategoria> listalivroCategoria = new List<LivroCategoria>();
+
+            //Array que possui as categorias selecionadas pelo usuario
+
+            string [] categoriasSelecionadas = form ["Categoria"].ToString().Split(',');
+            //Acao //Terror //Suspense
+
+            foreach(string categoria in categoriasSelecionadas){
+                LivroCategoria livroCategoria = new LivroCategoria();
+
+                livroCategoria.CategoriaID = int.Parse(categoria);
+                livroCategoria.LivroID = (novoLivro.LivroID);
+
+                listalivroCategoria.Add(livroCategoria);
+            }
+
+            //Pegueia colecao da listaLivroCategorias e coloquei na tabela LivroCategoria
+            context.LivroCategoria.AddRange(listalivroCategoria);
+
+            context.SaveChanges();
+
+            return  LocalRedirect("/cadastro");
+           
         }
 
         // [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
