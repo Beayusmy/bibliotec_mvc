@@ -89,6 +89,10 @@
       "PackagePath": "staticwebassets\\images\\Livros\\tabletmulher.png"
     },
     {
+      "Id": "C:\\Users\\40511347847\\Desktop\\Bibliotec Atualizada\\bibliotec_mvc\\wwwroot\\images\\Padrões - HTML.rar",
+      "PackagePath": "staticwebassets\\images\\Padrões - HTML.rar"
+    },
+    {
       "Id": "C:\\Users\\40511347847\\Desktop\\Bibliotec Atualizada\\bibliotec_mvc\\wwwroot\\images\\UserPlus-icon.svg",
       "PackagePath": "staticwebassets\\images\\UserPlus-icon.svg"
     },
@@ -151,6 +155,10 @@
     {
       "Id": "C:\\Users\\40511347847\\Desktop\\Bibliotec Atualizada\\bibliotec_mvc\\wwwroot\\images\\em-formacao (1) 1.svg",
       "PackagePath": "staticwebassets\\images\\em-formacao (1) 1.svg"
+    },
+    {
+      "Id": "C:\\Users\\40511347847\\Desktop\\Bibliotec Atualizada\\bibliotec_mvc\\wwwroot\\images\\excluir.svg",
+      "PackagePath": "staticwebassets\\images\\excluir.svg"
     },
     {
       "Id": "C:\\Users\\40511347847\\Desktop\\Bibliotec Atualizada\\bibliotec_mvc\\wwwroot\\images\\facebook-icon.png",

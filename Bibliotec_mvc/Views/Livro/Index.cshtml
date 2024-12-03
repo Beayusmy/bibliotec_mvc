@@ -25,17 +25,17 @@
             <tbody>
                     @foreach(var livro in ViewBag.Livros){ 
                 <tr>
-                    <td data-cell="titulo">@Livro.Nome</td>
-                    <td data-cell="reservado">@(ViewBag.LivrosComReserva.Containskey(Livro.LivroId)? "Sim": "Nao")</td>
-                    <td data-cell="data devol.">@(ViewBag.LivrosComReserva.Containskey(Livro.LivroId) ? ViewBag.LivrosComReserva[livro.livroID].ToString("dd/MM/yyyy") : "Nao possui reserva")</td>
+                    <td data-cell="titulo">@livro.Nome</td>
+                    <td data-cell="reservado">@(ViewBag.LivrosComReserva.Containskey(livro.LivroID)? "Sim": "Nao")</td>
+                    <td data-cell="data devol.">@(ViewBag.LivrosComReserva.Containskey(livro.LivroID) ? ViewBag.LivrosComReserva[livro.livroID].ToString("dd/MM/yyyy") : "Nao possui reserva")</td>
                     <td class="icon" data-cell="editar"><a class="navbar-item"><img style="width: 40px;"
                                 src="~/images/editar.svg" alt=""></a></td>
                     <td class="icon" data-cell="detalhes"><a class="navbar-item"><img style="width: 40px;"
                                 src="~/images/detalhes.svg" alt=""></a></td>
                     <td class="icon" data-cell="excluir"><a class="navbar-item"><img style="width: 40px;"
                        src="~/images/excluir.svg" alt=""></a></td>
-                    }
                 </tr>
+                    }
             </tbody>
         </table>
 
